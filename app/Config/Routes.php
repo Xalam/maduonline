@@ -35,6 +35,10 @@ $routes->group('admin', function ($routes) {
 	$routes->get('/', 'Admin\Home::index');
 	$routes->get('/product', 'Admin\Product::index');
 	$routes->get('/article', 'Admin\Article::index');
+	$routes->post('/product/store', 'Admin\Product::store');
+	$routes->get('/product/edit/(:any)', 'Admin\Product::edit/$1');
+	$routes->get('/product/modal/(:any)', 'Admin\Product::modal/$1');
+	$routes->delete('/product/delete/(:any)', 'Admin\Product::modal/$1');
 });
 
 /*
