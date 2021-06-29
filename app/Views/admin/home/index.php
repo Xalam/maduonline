@@ -14,7 +14,7 @@
                     <div class="col-12 col-xl-7 px-xl-0">
                         <div class="d-none d-sm-block">
                             <h2 class="h6 text-gray-400 mb-0">Produk</h2>
-                            <h3 class="fw-extrabold mb-2">0</h3>
+                            <h3 class="fw-extrabold mb-2"><?= $sumProduct; ?></h3>
                         </div>
                         <small class="d-flex align-items-center text-gray-500">
                             Produk yang terdaftar
