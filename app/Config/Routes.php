@@ -39,6 +39,14 @@ $routes->group('admin', function ($routes) {
 	$routes->get('/product/edit/(:any)', 'Admin\Product::edit/$1');
 	$routes->get('/product/modal/(:any)', 'Admin\Product::modal/$1');
 	$routes->delete('/product/delete/(:any)', 'Admin\Product::modal/$1');
+	$routes->post('/article/store', 'Admin\Article::store');
+	$routes->get('/article/edit/(:any)', 'Admin\Article::edit/$1');
+	$routes->get('/article/modal/(:any)', 'Admin\Article::modal/$1');
+	$routes->delete('/article/delete/(:any)', 'Admin\Article::modal/$1');
+
+	$routes->get('login', 'Admin\Login::index');
+	$routes->post('login/post_login', 'Admin\Login::post_login');
+	$routes->get('logout', 'Admin\Login::logout', ['as' => 'admin_logout']);
 });
 
 /*

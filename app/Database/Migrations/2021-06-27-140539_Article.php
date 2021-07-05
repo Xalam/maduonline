@@ -31,10 +31,6 @@ class Article extends Migration
 				'type'		=> 'TEXT',
 				'null'		=> true,
 			],
-			'article_description' => [
-				'type'		=> 'TEXT',
-				'null'		=> true,
-			],
 			'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
 			'updated_at DATETIME DEFAULT CURRENT_TIMESTAMP',
 		]);
