@@ -36,7 +36,8 @@ class Filters extends BaseConfig
 				'except' => [
 					'admin/login',
 					'admin/login/post_login',
-					'admin/logout'
+					'admin/logout',
+					'/'
 				]
 			]
 		],

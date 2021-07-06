@@ -49,6 +49,8 @@ $routes->group('admin', function ($routes) {
 	$routes->get('logout', 'Admin\Login::logout', ['as' => 'admin_logout']);
 });
 
+$routes->get('/', 'FrontEnd\Home::index');
+$routes->get('/detail/(:any)', 'FrontEnd\Home::show/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
