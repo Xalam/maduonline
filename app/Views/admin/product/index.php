@@ -60,8 +60,10 @@
                             <td width="10%" class="text-center"><?= $no++; ?></td>
                             <td width="15%" class="text-center"><img src="/img/product/<?= $pro['product_image']; ?>" alt="Product Image"></td>
                             <td width="20%"><?= $pro['product_name']; ?></td>
-                            <td width="30%" class="text-center"><?= number_format($pro['product_price'], 0, '', '.'); ?></td>
-                            <td width="15%"><?= $pro['product_description']; ?></td>
+                            <td width="15%" class="text-center"><?= number_format($pro['product_price'], 0, '', '.'); ?></td>
+                            <td width="30%">
+                                <div style="max-height: 100px;"><?= $pro['product_description']; ?></div>
+                            </td>
                             <td width="10%" class="text-center">
                                 <a href="/admin/product/edit/<?= $pro['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <a href="#modal-delete" data-remote="/admin/product/modal/<?= $pro['id']; ?>" data-bs-toggle="modal" data-bs-target="#modal-delete" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
@@ -158,7 +160,7 @@
         ],
         toolbar: 'undo redo | formatselect | ' +
             'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'alignright alignjustify | bullist numlist outdent indent blockquote | ' +
             'removeformat',
     });
 </script>

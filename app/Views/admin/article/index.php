@@ -59,7 +59,9 @@
                             <td width="10%" class="text-center"><?= $no++; ?></td>
                             <td width="15%" class="text-center"><img src="/img/article/<?= $arc['article_image']; ?>" alt="Article Image"></td>
                             <td width="20%"><?= $arc['article_title']; ?></td>
-                            <td width="40%"><?= $arc['article_content']; ?></td>
+                            <td width="40%">
+                                <div style="max-height: 100px;"><?= $arc['article_content']; ?></div>
+                            </td>
                             <td width="15%" class="text-center">
                                 <a href="/admin/article/edit/<?= $arc['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <a href="#modal-delete" data-remote="/admin/article/modal/<?= $arc['id']; ?>" data-bs-toggle="modal" data-bs-target="#modal-delete" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
@@ -152,7 +154,7 @@
         ],
         toolbar: 'undo redo | formatselect | ' +
             'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'alignright alignjustify | bullist numlist outdent indent blockquote | ' +
             'removeformat',
     });
 </script>

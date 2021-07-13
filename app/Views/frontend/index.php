@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/typography@0.4.x/dist/typography.min.css" />
     <style>
         body {
             font-family: 'Source Sans Pro', sans-serif;
@@ -43,6 +44,13 @@
             -webkit-line-clamp: 5;
             /* number of lines to show */
             -webkit-box-orient: vertical;
+        }
+
+        .marketplace {
+            display: flex;
+            width: 100%;
+            margin: 0 auto;
+            justify-content: center;
         }
     </style>
 </head>
@@ -169,9 +177,9 @@
         </div>
     </section>
 
-    <section class="bg-white border-b py-8">
+    <section class="bg-white border-b py-8" style="background: #f2b954;">
         <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-            <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+            <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
                 Produk
             </h1>
             <div class="w-full mb-4">
@@ -188,9 +196,10 @@
                             <div class="container_image" style="margin-top: 20px; margin-bottom: 10px;">
                                 <img src="img/product/<?= $pro['product_image']; ?>" />
                             </div>
-                            <p class="text-gray-800 text-base px-6 mb-5 article_content">
-                                <b>DESKRIPSI : </b> <?= $pro['product_description']; ?>
-                            </p>
+                            <div class="text-gray-800 px-5 mb-3">
+                                <b>DESKRIPSI :</b><br>
+                                <div class="prose" style="margin-left: 5%; margin-right: 5%;"><?= $pro['product_description']; ?></div>
+                            </div>
                             <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
                                 <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
                                     Rp <?= number_format($pro['product_price'], 0, ',', '.'); ?>
@@ -224,7 +233,7 @@
                                 </div>
                                 <small class="px-6" style="margin-bottom: 15px;"><i>Dibuat tanggal : <?= date('d-m-Y', strtotime($arc['created_at'])); ?>, oleh : Admin</i></small>
                                 <p class="text-gray-800 text-base px-6 mb-5 article_content">
-                                    <?= $arc['article_content']; ?>
+                                    <?= strip_tags($arc['article_content']); ?>
                                 </p>
                             </a>
                         </div>
@@ -271,6 +280,23 @@
         <a href="https://mywa.link/ed2c7kvq" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Whatsapp
         </a>
+        <h4 class="my-4 text-2xl leading-tight" style="margin-top: 40px;">
+            Marketplace :
+        </h4>
+        <div class="marketplace">
+            <a href="#">
+                <img src="https://madurasa.co.id/wp-content/uploads/2020/08/Bukalapak-1.png" alt="Bukalapak" style="height: 80px; width: 80px;">
+                <h5 style="margin-top: -10px;">Bukalapak</h5>
+            </a>
+            <a href="#" style="margin-left: 20px;">
+                <img src="https://madurasa.co.id/wp-content/uploads/2020/08/Tokped.png" alt="Tokopedia" style="height: 60px; width: 60px;">
+                <h5 style="margin-top: 10px;">Tokopedia</h5>
+            </a>
+            <a href="#" style="margin-left: 20px;">
+                <img src="https://madurasa.co.id/wp-content/uploads/2020/08/Shopee-1.png" alt="Bukalapak" style="height: 60px; width: 60px;">
+                <h5 style="margin-top: 10px;">Shopee</h5>
+            </a>
+        </div>
     </section>
 
     <div>

@@ -10,6 +10,7 @@
     </title>
 
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/typography@0.4.x/dist/typography.min.css" />
     <!--Replace with your tailwind.css once created-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
@@ -23,6 +24,13 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .marketplace {
+            display: flex;
+            width: 100%;
+            margin: 0 auto;
+            justify-content: center;
         }
     </style>
 </head>
@@ -65,7 +73,7 @@
             </g>
         </svg>
     </div>
-    <section class="bg-white border-b py-8">
+    <section class="bg-white py-12">
         <div class="container max-w-5xl mx-auto m-8">
             <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                 <?= $article['article_title']; ?>
@@ -73,13 +81,12 @@
             <div class="w-full mb-4">
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
             </div>
-            <div class="flex flex-wrap">
-                <div class="w-6/6 sm:w-1/1">
-                    <p class="text-gray-600 mb-8 text-xl">
-                        <?= $article['article_content']; ?>
-                    </p>
-                </div>
+            <div class="text-gray-400 text-center">
+                <small><i>Dibuat tanggal : <?= date('d-m-Y', strtotime($article['created_at'])); ?>, oleh : Admin</i></small>
             </div>
+            <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" style="margin-top: 20px;">
+                <?= $article['article_content']; ?>
+            </article>
         </div>
     </section>
 
@@ -112,6 +119,23 @@
         <a href="https://mywa.link/ed2c7kvq" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Whatsapp
         </a>
+        <h4 class="my-4 text-2xl leading-tight" style="margin-top: 40px;">
+            Marketplace :
+        </h4>
+        <div class="marketplace">
+            <a href="#">
+                <img src="https://madurasa.co.id/wp-content/uploads/2020/08/Bukalapak-1.png" alt="Bukalapak" style="height: 80px; width: 80px;">
+                <h5 style="margin-top: -10px;">Bukalapak</h5>
+            </a>
+            <a href="#" style="margin-left: 20px;">
+                <img src="https://madurasa.co.id/wp-content/uploads/2020/08/Tokped.png" alt="Tokopedia" style="height: 60px; width: 60px;">
+                <h5 style="margin-top: 10px;">Tokopedia</h5>
+            </a>
+            <a href="#" style="margin-left: 20px;">
+                <img src="https://madurasa.co.id/wp-content/uploads/2020/08/Shopee-1.png" alt="Bukalapak" style="height: 60px; width: 60px;">
+                <h5 style="margin-top: 10px;">Shopee</h5>
+            </a>
+        </div>
     </section>
 
     <div>

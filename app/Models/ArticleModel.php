@@ -9,5 +9,5 @@ class ArticleModel extends Model
     protected $table = 'article';
     protected $useTimestamps = true;
 
-    protected $allowedFields = ['article_creator', 'article_title', 'article_image', 'article_content'];
+    protected $allowedFields = ['article_creator', 'article_title', 'article_image', 'article_content', 'created_at', 'updated_at'];
 }
