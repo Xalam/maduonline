@@ -12,7 +12,11 @@
     }
 
     tbody>tr>td {
+        max-width: 200px;
         vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 </style>
 
@@ -53,12 +57,12 @@
                     <?php $no = 1 ?>
                     <?php foreach ($product as $pro) { ?>
                         <tr>
-                            <td class="text-center"><?= $no++; ?></td>
-                            <td class="text-center"><img src="/img/product/<?= $pro['product_image']; ?>" alt="Product Image"></td>
-                            <td><?= $pro['product_name']; ?></td>
-                            <td class="text-center"><?= number_format($pro['product_price'], 0, '', '.'); ?></td>
-                            <td><?= $pro['product_description']; ?></td>
-                            <td class="text-center">
+                            <td width="10%" class="text-center"><?= $no++; ?></td>
+                            <td width="15%" class="text-center"><img src="/img/product/<?= $pro['product_image']; ?>" alt="Product Image"></td>
+                            <td width="20%"><?= $pro['product_name']; ?></td>
+                            <td width="30%" class="text-center"><?= number_format($pro['product_price'], 0, '', '.'); ?></td>
+                            <td width="15%"><?= $pro['product_description']; ?></td>
+                            <td width="10%" class="text-center">
                                 <a href="/admin/product/edit/<?= $pro['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <a href="#modal-delete" data-remote="/admin/product/modal/<?= $pro['id']; ?>" data-bs-toggle="modal" data-bs-target="#modal-delete" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                             </td>
@@ -79,6 +83,7 @@
 <!-- Notyf -->
 <script src="/assets/vendor/notyf/notyf.min.js"></script>
 <script src="/assets/vendor/jquery-mask/jquery.mask.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/zfkver2ocuzt0kcrwcy1k5p9dh49x0mska1vzokg9vghvuqx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
     $(function() {
@@ -142,6 +147,22 @@
         });
     });
 </script>
+<script>
+    tinymce.init({
+        selector: 'textarea#product-description',
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat',
+    });
+</script>
+
 <!-- Modal Insert -->
 <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

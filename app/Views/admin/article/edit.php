@@ -65,6 +65,23 @@
 
 <?= $this->section('script'); ?>
 <script src="/assets/vendor/jquery/jquery-3.6.0.js"></script>
+<script src="https://cdn.tiny.cloud/1/zfkver2ocuzt0kcrwcy1k5p9dh49x0mska1vzokg9vghvuqx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea#article-content',
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat',
+    });
+</script>
 
 <script>
     $(function() {

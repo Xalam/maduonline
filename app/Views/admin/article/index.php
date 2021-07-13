@@ -12,7 +12,11 @@
     }
 
     tbody>tr>td {
+        max-width: 200px;
         vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 </style>
 
@@ -52,11 +56,11 @@
                     <?php $no = 1 ?>
                     <?php foreach ($article as $arc) { ?>
                         <tr>
-                            <td class="text-center"><?= $no++; ?></td>
-                            <td class="text-center"><img src="/img/article/<?= $arc['article_image']; ?>" alt="Article Image"></td>
-                            <td><?= $arc['article_title']; ?></td>
-                            <td><?= $arc['article_content']; ?></td>
-                            <td class="text-center">
+                            <td width="10%" class="text-center"><?= $no++; ?></td>
+                            <td width="15%" class="text-center"><img src="/img/article/<?= $arc['article_image']; ?>" alt="Article Image"></td>
+                            <td width="20%"><?= $arc['article_title']; ?></td>
+                            <td width="40%"><?= $arc['article_content']; ?></td>
+                            <td width="15%" class="text-center">
                                 <a href="/admin/article/edit/<?= $arc['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                 <a href="#modal-delete" data-remote="/admin/article/modal/<?= $arc['id']; ?>" data-bs-toggle="modal" data-bs-target="#modal-delete" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                             </td>
@@ -76,6 +80,7 @@
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
 <!-- Notyf -->
 <script src="/assets/vendor/notyf/notyf.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/zfkver2ocuzt0kcrwcy1k5p9dh49x0mska1vzokg9vghvuqx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
     $(function() {
@@ -133,6 +138,22 @@
 
             modal.find('.modal-content').load(button.data("remote"));
         });
+    });
+</script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea#article-content',
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat',
     });
 </script>
 
