@@ -37,7 +37,8 @@ class Filters extends BaseConfig
 					'admin/login',
 					'admin/login/post_login',
 					'admin/logout',
-					'/'
+					'/',
+					'/detail/*'
 				]
 			]
 		],
